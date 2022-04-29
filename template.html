@@ -21,21 +21,14 @@ Created on Thu Apr 28 21:49:52 2022
   </head>
   <body>
     <div class="container">
-
       <p>Value from the list: {{draft_details}}</p>
       <p>Loop through the list:</p>
       <table border="2">
-          <tr>
          {% for ke, val in draft_details.items() %}
          <th>{{ke}}</th>
-         {% endfor %}
-          </tr>
-
-            {% for idx in draft_details.values()%}
-                {% if loop.index == 1 %}
-                    {% for id in idx %}
+                {% if loop.last %}
+                    {% for id in val %}
                     <TR>
-                        {{id}}
                        <TD >{{draft_details['Type'][loop.index-1]}}</TD>
                        <TD >{{draft_details['Features'][loop.index-1]}}</TD>
                        <TD >{{draft_details['Values'][loop.index-1]}}</TD>
@@ -44,7 +37,6 @@ Created on Thu Apr 28 21:49:52 2022
               {% endif %}
         {% endfor %}
         </table>
-
     </div>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
