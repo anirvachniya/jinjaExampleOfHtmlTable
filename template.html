@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 28 21:49:52 2022
+
+@author: anirvachniya
+"""
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask Template Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+      .container {
+        max-width: 500px;
+        padding-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <p>Value from the list: {{draft_details}}</p>
+      <p>Loop through the list:</p>
+      <table border="2">
+          <tr>
+         {% for ke, val in draft_details.items() %}
+         <th>{{ke}}</th>
+         {% endfor %}
+          </tr>
+
+            {% for idx in draft_details.values()%}
+                {% if loop.index == 1 %}
+                    {% for id in idx %}
+                    <TR>
+                        {{id}}
+                       <TD >{{draft_details['Type'][loop.index-1]}}</TD>
+                       <TD >{{draft_details['Features'][loop.index-1]}}</TD>
+                       <TD >{{draft_details['Values'][loop.index-1]}}</TD>
+                    </TR>
+                    {% endfor %}
+              {% endif %}
+        {% endfor %}
+        </table>
+
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
